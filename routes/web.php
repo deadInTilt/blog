@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Main\IndexController;
+use App\Http\Controllers\Admin\Main\AdminController;
 use App\Http\Controllers\HomeController;
 
 /*
@@ -16,10 +16,22 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::group(['namespace' => 'Main'], function() {
-    Route::get('/', [IndexController::class, '__invoke']);
+Route::group(['namespace' => '\App\Http\Controllers\Main'], function() {
+    Route::get('/', 'IndexController');
 });
 
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index']);
+
+Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function () {
+    Route::group(['namespace' => 'Main'], function () {
+        Route::get('/', 'AdminController')->name('admin.index');
+    });
+
+    Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function () {
+        Route::get('/', 'IndexController')->name('category.index');
+        Route::get('/create', 'CreateController')->name('category.create');
+        Route::post('/', 'StoreController')->name('category.store');
+    });
+});
