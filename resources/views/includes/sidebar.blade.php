@@ -7,13 +7,13 @@
             <a href="./index.html" class="brand-link">
                 <!--begin::Brand Image-->
                 <img
-                    src="../../dist/assets/img/AdminLTELogo.png"
+                    src="{{ asset('dist/assets/img/logoB.jpg') }}"
                     alt="AdminLTE Logo"
                     class="brand-image opacity-75 shadow"
                 />
                 <!--end::Brand Image-->
                 <!--begin::Brand Text-->
-                <span class="brand-text fw-light">Blog</span>
+                <span class="brand-text fw-light">Blogify Admin</span>
                 <!--end::Brand Text-->
             </a>
             <!--end::Brand Link-->
@@ -30,10 +30,22 @@
                     data-accordion="false">
                     <li class="nav-item">
                     <a href=" {{route('category.index')}} " class="nav-link">
-                        <i class="nav-icon bi bi-palette"></i>
+                        <img
+                            src="{{ asset('assets/images/list-solid.svg') }}"
+                            alt="look"
+                            class="brand-image opacity-75 shadow"
+                            style="max-width: 20px;"/>
                         <p>Categories</p>
                     </a>
                     </li>
+                    <li class="nav-item">
+                        <a href=" {{route('tag.index')}} " class="nav-link">
+                            <i class="nav-icon fa-solid fa-tags"></i>
+                            <p>Tags</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
         <!--end::Sidebar Wrapper-->
     </aside>

@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en">
 <!--begin::Head-->
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>AdminLTE v4 | Dashboard</title>
+    <title>Blogify</title>
     <!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="title" content="AdminLTE v4 | Dashboard" />
@@ -42,7 +43,7 @@
     />
     <!--end::Third Party Plugin(Bootstrap Icons)-->
     <!--begin::Required Plugin(AdminLTE)-->
-    <link rel="stylesheet" href="../../dist/css/adminlte.css" />
+    <link rel="stylesheet" href=" {{ asset('dist/css/adminlte.css') }}" />
     <!--end::Required Plugin(AdminLTE)-->
     <!-- apexcharts -->
     <link
@@ -106,7 +107,7 @@
         <!--end::To the end-->
         <!--begin::Copyright-->
         <strong>
-            Blog
+            Blogify
         </strong>
         <!--end::Copyright-->
     </footer>

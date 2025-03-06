@@ -33,5 +33,19 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
         Route::get('/', 'IndexController')->name('category.index');
         Route::get('/create', 'CreateController')->name('category.create');
         Route::post('/', 'StoreController')->name('category.store');
+        Route::get('/{category}', 'ShowController')->name('category.show');
+        Route::get('/{category}/edit', 'EditController')->name('category.edit');
+        Route::patch('/{category}', 'UpdateController')->name('category.update');
+        Route::delete('/{category}', 'DeleteController')->name('category.delete');
+    });
+
+    Route::group(['namespace' => 'Tag', 'prefix' => 'tags'], function () {
+        Route::get('/', 'IndexController')->name('tag.index');
+        Route::get('/create', 'CreateController')->name('tag.create');
+        Route::post('/', 'StoreController')->name('tag.store');
+        Route::get('/{tag}', 'ShowController')->name('tag.show');
+        Route::get('/{tag}/edit', 'EditController')->name('tag.edit');
+        Route::patch('/{tag}', 'UpdateController')->name('tag.update');
+        Route::delete('/{tag}', 'DeleteController')->name('tag.delete');
     });
 });

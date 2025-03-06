@@ -8,11 +8,11 @@
         <div class="container-fluid">
             <!--begin::Row-->
             <div class="row">
-                <div class="col-sm-6"><h3 class="mb-0">Categories</h3></div>
+                <div class="col-sm-6"><h3 class="mb-0">Tags</h3></div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-end">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Categories</li>
+                        <li class="breadcrumb-item active" aria-current="page">Tags</li>
                     </ol>
                 </div>
             </div>
@@ -41,12 +41,12 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($categories as $category)
+                        @foreach($tags as $tag)
                         <tr class="align-middle">
-                            <td>{{ $category->id }}</td>
-                            <td>{{ $category->title }}</td>
+                            <td>{{ $tag->id }}</td>
+                            <td>{{ $tag->title }}</td>
                             <td>
-                                <a href="{{route('category.show', $category->id)}} " class="brand-link">
+                                <a href="{{route('tag.show', $tag->id)}} " class="brand-link">
                                     <img
                                         src="{{ asset('assets/images/eye-solid.svg') }}"
                                         alt="look"
@@ -54,7 +54,7 @@
                                         style="max-width: 20px;"/>
                                 </a>
                             <td>
-                                <a href=" {{route('category.edit', $category->id)}} " class="brand-link">
+                                <a href=" {{route('tag.edit', $tag->id)}} " class="brand-link">
                                     <img
                                         src="{{ asset('assets/images/pencil-solid.svg') }}"
                                         alt="look"
@@ -63,7 +63,7 @@
                                 </a>
                             </td>
                             <td>
-                                <form action=" {{route('category.delete', $category->id) }}" method="POST">
+                                <form action=" {{route('tag.delete', $tag->id) }}" method="POST">
                                     @method('DELETE')
                                     @csrf
                                     <button type="submit" class="border-0 bg-white" >
@@ -77,9 +77,9 @@
                     </table>
                     <!-- /.card-body -->
                 </div>
-                <div class="col-sm-6"><h3 class="mb-3">Добавить категорию</h3></div>
+                <div class="col-sm-6"><h3 class="mb-3">Добавить тег</h3></div>
                 <div class="col-12">
-                    <a href="{{ route('category.create') }}" class="btn btn-primary btn-lg">Добавить</a>
+                    <a href="{{ route('tag.create') }}" class="btn btn-primary btn-lg">Добавить</a>
                 </div>
             </div>
             <!--end::Row-->

@@ -8,10 +8,10 @@
         <div class="container-fluid">
             <!--begin::Row-->
             <div class="row">
-                <div class="col-sm-6"><h3 class="mb-0">Categories</h3></div>
+                <div class="col-sm-6"><h3 class="mb-0">Tags</h3></div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-end">
-                        <li class="breadcrumb-item"><a href=" {{ route('category.index') }}">Back</a></li>
+                        <li class="breadcrumb-item"><a href=" {{ route('tag.index') }}">Back</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Create</li>
                     </ol>
                 </div>
@@ -28,18 +28,18 @@
             <!--begin::Row-->
             <div class="row">
                 <div class="col-12">
-                    <form action="{{ route('category.store') }}" method="POST">
+                    <form action="{{ route('tag.store') }}" method="POST">
                         @csrf
                         <div class="card card-primary card-outline mb-4">
                             <!--begin::Header-->
-                            <div class="card-header"><div class="card-title">Добавление категории</div></div>
+                            <div class="card-header"><div class="card-title">Добавление тега</div></div>
                             <!--end::Header-->
                             <!--begin::Form-->
                             <form>
                                 <!--begin::Body-->
                                 <div class="card-body">
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" name="title" placeholder="Введите наименование категории">
+                                        <input type="text" class="form-control" name="title" placeholder="Введите наименование тега">
                                         @error('title')
                                             <div class="text-danger">Поле необходимо к заполнению</div>
                                         @enderror
