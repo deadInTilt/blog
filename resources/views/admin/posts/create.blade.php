@@ -45,6 +45,7 @@
                                             <div class="text-danger">Поле необходимо к заполнению</div>
                                         @enderror
                                     </div>
+
                                     <div class="div.form-group">
                                         <textarea id="summernote" name="content">
                                             {{ old('content') }}
@@ -53,18 +54,31 @@
                                         <div class="text-danger">Поле необходимо к заполнению</div>
                                         @enderror
                                     </div>
+
                                     <div class="card-header"><div class="card-title">Категория</div></div>
-                                    <select class="form-select" id="validationCustom04" name="category_id">
-                                        <option selected="" disabled="" value="">Выберите категорию</option>
-                                        @foreach($categories as $category)
-                                        <option value="{{ $category->id }}"
-                                        {{ $category->id == old('category_id') ? ' selected' : '' }}
-                                        >{{ $category->title }}</option>
-                                        @endforeach
-                                        @error('preview_image')
-                                        <div class="text-danger">Необходимо выбрать категорию</div>
-                                        @enderror
-                                    </select>
+                                        <div class="form-group">
+                                            <select class="form-select" id="validationCustom04" name="category_id">
+                                                <option selected="" disabled="" value="">Выберите категорию</option>
+                                                @foreach($categories as $category)
+                                                <option value="{{ $category->id }}"
+                                                {{ $category->id == old('category_id') ? ' selected' : '' }}
+                                                >{{ $category->title }}</option>
+                                                @endforeach
+                                                @error('preview_image')
+                                                <div class="text-danger">Необходимо выбрать категорию</div>
+                                                @enderror
+                                            </select>
+                                        </div>
+
+                                    <div class="card-header"><div class="card-title">Теги</div></div>
+                                        <div class="form-group">
+                                            <select name="tag_ids[]" class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+                                                @foreach ($tags as $tag)
+                                                    <option {{ is_array(old('tag_ids')) && in_array($tag->id, old('tag_ids')) ? ' selected' : '' }} value="{{ $tag->id }}">{{ $tag->title }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
                                     <div class="card-header"><div class="card-title">Загрузите превью</div></div>
                                     <div class="input-group mb-3">
                                         <input type="file" class="form-control" id="inputGroupFile02" name="preview_image">
@@ -72,6 +86,7 @@
                                         <div class="text-danger">Необходимо загрузить превью</div>
                                         @enderror
                                     </div>
+
                                     <div class="card-header"><div class="card-title">Загрузите изображения</div></div>
                                     <div class="input-group mb-3">
                                         <input type="file" class="form-control" id="inputGroupFile02" name="main_image">
@@ -79,6 +94,7 @@
                                         <div class="text-danger">Необходимо загрузить изображения</div>
                                         @enderror
                                     </div>
+
                                 <!--end::Body-->
                                 <!--begin::Footer-->
                                 <div class="card-footer">
