@@ -8,11 +8,11 @@
             <div class="container-fluid">
                 <!--begin::Row-->
                 <div class="row">
-                    <div class="col-sm-6"><h3 class="mb-0">Tags</h3></div>
+                    <div class="col-sm-6"><h3 class="mb-0">Posts</h3></div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-end">
                             <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Tags</li>
+                            <li class="breadcrumb-item active" aria-current="page">Posts</li>
                         </ol>
                     </div>
                 </div>
@@ -36,18 +36,17 @@
                                     <td colspan="2">Действие</td>
                                 </tr>
                                 <tr class="align-middle">
-                                    <td>{{ $tag->id }}</td>
-                                    <td>{{ $tag->title }}</td>
-                                    <td><a href=" {{route('tag.edit', $tag->id)}} " class="brand-link">
+                                    <td>{{ $post->id }}</td>
+                                    <td>{{ $post->title }}</td>
+                                    <td><a href=" {{route('post.edit', $post->id)}} " class="brand-link">
                                             <img
                                                 src="{{ asset('assets/images/pencil-solid.svg') }}"
                                                 alt="look"
                                                 class="brand-image opacity-75 shadow"
                                                 style="max-width: 20px;"/>
-
-                                    </td>
+                                        </a>
                                     <td>
-                                        <form action=" {{route('tag.delete', $tag->id) }}" method="POST">
+                                        <form action=" {{route('post.delete', $post->id) }}" method="POST">
                                             @method('DELETE')
                                             @csrf
                                             <button type="submit" class="border-0 bg-white" >

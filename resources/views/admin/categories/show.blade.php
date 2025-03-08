@@ -43,8 +43,7 @@
                                                 src="{{ asset('assets/images/pencil-solid.svg') }}"
                                                 alt="look"
                                                 class="brand-image opacity-75 shadow"
-                                                style="max-width: 20px;"/>
-
+                                                style="max-width: 20px;"></a>
                                     </td>
                                     <td>
                                         <form action=" {{route('category.delete', $category->id) }}" method="POST">

@@ -48,4 +48,14 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
         Route::patch('/{tag}', 'UpdateController')->name('tag.update');
         Route::delete('/{tag}', 'DeleteController')->name('tag.delete');
     });
+
+    Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
+        Route::get('/', 'IndexController')->name('post.index');
+        Route::get('/create', 'CreateController')->name('post.create');
+        Route::post('/', 'StoreController')->name('post.store');
+        Route::get('/{post}', 'ShowController')->name('post.show');
+        Route::get('/{post}/edit', 'EditController')->name('post.edit');
+        Route::patch('/{post}', 'UpdateController')->name('post.update');
+        Route::delete('/{post}', 'DeleteController')->name('post.delete');
+    });
 });

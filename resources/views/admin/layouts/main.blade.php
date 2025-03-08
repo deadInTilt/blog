@@ -103,7 +103,7 @@
     <!--begin::Footer-->
     <footer class="app-footer">
         <!--begin::To the end-->
-        <div class="float-end d-none d-sm-inline">All rights reserved</div>
+        <div class="float-end d-none d-sm-inline">©All rights reserved</div>
         <!--end::To the end-->
         <!--begin::Copyright-->
         <strong>
