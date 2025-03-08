@@ -53,15 +53,31 @@
                                         <div class="text-danger">Поле необходимо к заполнению</div>
                                         @enderror
                                     </div>
-                                <div class="card-header"><div class="card-title">Загрузите превью</div></div>
-                                <div class="input-group mb-3">
-                                    <input type="file" class="form-control" id="inputGroupFile02" name="preview_image">
-                                    <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                                </div>
+                                    <div class="card-header"><div class="card-title">Категория</div></div>
+                                    <select class="form-select" id="validationCustom04" name="category_id">
+                                        <option selected="" disabled="" value="">Выберите категорию</option>
+                                        @foreach($categories as $category)
+                                        <option value="{{ $category->id }}"
+                                        {{ $category->id == old('category_id') ? ' selected' : '' }}
+                                        >{{ $category->title }}</option>
+                                        @endforeach
+                                        @error('preview_image')
+                                        <div class="text-danger">Необходимо выбрать категорию</div>
+                                        @enderror
+                                    </select>
+                                    <div class="card-header"><div class="card-title">Загрузите превью</div></div>
+                                    <div class="input-group mb-3">
+                                        <input type="file" class="form-control" id="inputGroupFile02" name="preview_image">
+                                        @error('preview_image')
+                                        <div class="text-danger">Необходимо загрузить превью</div>
+                                        @enderror
+                                    </div>
                                     <div class="card-header"><div class="card-title">Загрузите изображения</div></div>
                                     <div class="input-group mb-3">
                                         <input type="file" class="form-control" id="inputGroupFile02" name="main_image">
-                                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                                        @error('main_image')
+                                        <div class="text-danger">Необходимо загрузить изображения</div>
+                                        @enderror
                                     </div>
                                 <!--end::Body-->
                                 <!--begin::Footer-->
