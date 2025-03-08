@@ -28,11 +28,11 @@
             <!--begin::Row-->
             <div class="row">
                 <div class="col-12">
-                    <form action="{{ route('post.store') }}" method="POST">
+                    <form action="{{ route('post.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card card-primary card-outline mb-4">
                             <!--begin::Header-->
-                            <div class="card-header"><div class="card-title">Добавление поста</div></div>
+                            <div class="card-header"><div class="card-title">Создание поста</div></div>
                             <!--end::Header-->
                             <!--begin::Form-->
                             <form>
@@ -53,11 +53,20 @@
                                         <div class="text-danger">Поле необходимо к заполнению</div>
                                         @enderror
                                     </div>
+                                <div class="card-header"><div class="card-title">Загрузите превью</div></div>
+                                <div class="input-group mb-3">
+                                    <input type="file" class="form-control" id="inputGroupFile02" name="preview_image">
+                                    <label class="input-group-text" for="inputGroupFile02">Upload</label>
                                 </div>
+                                    <div class="card-header"><div class="card-title">Загрузите изображения</div></div>
+                                    <div class="input-group mb-3">
+                                        <input type="file" class="form-control" id="inputGroupFile02" name="main_image">
+                                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                                    </div>
                                 <!--end::Body-->
                                 <!--begin::Footer-->
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary btn-lg">Добавить</button>
+                                    <button type="submit" class="btn btn-primary btn-lg">Создать</button>
                                 </div>
                                 <!--end::Footer-->
                             </form>
