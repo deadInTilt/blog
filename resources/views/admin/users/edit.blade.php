@@ -60,6 +60,22 @@
                                             <div class="text-danger">Поле необходимо к заполнению</div>
                                             @enderror
                                         </div>
+                                        <div class="form-group">
+                                            <select class="form-select" id="validationCustom04" name="role">
+                                                <option selected="" disabled="" value="">Выберите роль</option>
+                                                @foreach($roles as $id => $role)
+                                                    <option value="{{ $id }}"
+                                                        {{ $id == $user->role ? ' selected' : '' }}
+                                                    >{{ $role }}</option>
+                                                @endforeach
+                                                @error('role')
+                                                <div class="text-danger">{{$message}}</div>
+                                                @enderror
+                                            </select>
+                                        </div>
+                                        <div class="form-group w-50">
+                                            <input type="hidden" name="user_id" value="{{ $user->id }}">
+                                        </div>
 
                                     </div>
                                     <!--end::Body-->

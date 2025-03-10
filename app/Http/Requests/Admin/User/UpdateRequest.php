@@ -23,8 +23,11 @@ class UpdateRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'email' => 'required|string|email|unique:users',
-            'password' => 'required|string',        ];
+            'email' => 'required|string|email|unique:users,email,' . $this->user_id,
+            'user_id' => 'required|integer|exists:users,id',
+            'password' => 'required|string',
+            'role' => 'required|integer'
+        ];
     }
 
     public function messages(): array
@@ -34,6 +37,7 @@ class UpdateRequest extends FormRequest
             'email.required' => 'Email is required',
             'email.unique' => 'Email already exists',
             'password.required' => 'Password is required',
+            'role.required' => 'Role is required',
         ];
     }
 }

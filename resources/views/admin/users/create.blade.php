@@ -56,6 +56,19 @@
                                         <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
+                                    <div class="form-group">Роль
+                                        <select class="form-select" id="validationCustom04" name="role">
+                                            <option selected="" disabled="" value="">Выберите роль</option>
+                                            @foreach($roles as $id => $role)
+                                                <option value="{{ $id }}"
+                                                    {{ $id == old('role') ? ' selected' : '' }}
+                                                >{{ $role }}</option>
+                                            @endforeach
+                                            @error('role')
+                                            <div class="text-danger">{{$message}}</div>
+                                            @enderror
+                                        </select>
+                                    </div>
                                 </div>
                                 <!--end::Body-->
                                 <!--begin::Footer-->
