@@ -50,6 +50,12 @@
                             <p>Tags</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href=" {{route('user.index')}} " class="nav-link">
+                            <i class="fa-solid fa-user"></i>
+                            <p>Users</p>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>

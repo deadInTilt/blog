@@ -42,7 +42,7 @@
                                         <input type="text" class="form-control" name="title" placeholder="Введите заголовок поста"
                                         value=" {{ old('title') }}">
                                         @error('title')
-                                            <div class="text-danger">Поле необходимо к заполнению</div>
+                                            <div class="text-danger">{{$message}}</div>
                                         @enderror
                                     </div>
 
@@ -51,7 +51,7 @@
                                             {{ old('content') }}
                                         </textarea>
                                         @error('content')
-                                        <div class="text-danger">Поле необходимо к заполнению</div>
+                                        <div class="text-danger">{{$message}}</div>
                                         @enderror
                                     </div>
 
@@ -65,7 +65,7 @@
                                                 >{{ $category->title }}</option>
                                                 @endforeach
                                                 @error('preview_image')
-                                                <div class="text-danger">Необходимо выбрать категорию</div>
+                                                <div class="text-danger">{{$message}}</div>
                                                 @enderror
                                             </select>
                                         </div>
@@ -83,7 +83,7 @@
                                     <div class="input-group mb-3">
                                         <input type="file" class="form-control" id="inputGroupFile02" name="preview_image">
                                         @error('preview_image')
-                                        <div class="text-danger">Необходимо загрузить превью</div>
+                                        <div class="text-danger">{{$message}}</div>
                                         @enderror
                                     </div>
 
@@ -91,7 +91,7 @@
                                     <div class="input-group mb-3">
                                         <input type="file" class="form-control" id="inputGroupFile02" name="main_image">
                                         @error('main_image')
-                                        <div class="text-danger">Необходимо загрузить изображения</div>
+                                        <div class="text-danger">{{$message}}</div>
                                         @enderror
                                     </div>
 

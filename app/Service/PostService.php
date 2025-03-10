@@ -2,12 +2,17 @@
 
 namespace App\Service;
 
+use App\Http\Requests\Admin\Post\StoreRequest;
 use App\Models\Post;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class PostService
 {
+    public function __construct(private StoreRequest $request)
+    {
+
+    }
     public function store($data)
     {
         try {
@@ -38,8 +43,8 @@ class PostService
                 $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
             };
 
-            if(isset($data['preview_image'])){
-                $data['main_image'] = Storage::disk('public')->put('/images', contents: $data['main_image']);
+            if(isset($data['main_image'])){
+                $data['main_image'] = Storage::disk('public')->put('/images', $data['main_image']);
             };
 
             $post->update($data);

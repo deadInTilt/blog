@@ -31,4 +31,17 @@ class UpdateRequest extends FormRequest
             'main_image' => 'nullable|file',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+          'title.required' => 'Title is required',
+          'content.required' => 'Content is required',
+          'category_id.required' => 'Category is required',
+          'tag_ids.array' => 'Tags must be an array',
+          'tag_ids.*.integer' => 'Tags must be an integer',
+          'preview_image.file' => 'Preview image must be a file',
+          'main_image.file' => 'Main image must be a file',
+        ];
+    }
 }

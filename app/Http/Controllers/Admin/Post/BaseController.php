@@ -7,9 +7,14 @@ use App\Service\PostService;
 
 class BaseController extends Controller
 {
-    public $service;
+    protected $service;
     public function __construct(PostService $service)
     {
         $this->service = $service;
+    }
+
+    public function index()
+    {
+        $service = new PostService();
     }
 }

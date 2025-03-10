@@ -31,4 +31,21 @@ class StoreRequest extends FormRequest
             'main_image' => 'required|file',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+          'title.required' => 'Title is required',
+          'title.string' => 'Title must be string',
+          'content.required' => 'Content is required',
+          'content.string' => 'Content must be string',
+          'category_id.required' => 'Category is required',
+          'category_id.integer' => 'Category must be integer',
+          'tag_ids.array' => 'Tag must be array',
+          'preview_image.required' => 'Main image is required',
+          'preview_image.file' => 'Main image must be a file',
+          'main_image.required' => 'Main image is required',
+          'main_image.file' => 'Main image must be a file',
+        ];
+    }
 }
