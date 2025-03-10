@@ -66,7 +66,7 @@
 <!--begin::App Wrapper-->
 <div class="app-wrapper">
     <!--begin::Header-->
-    <nav class="app-header navbar navbar-expand bg-body">
+    <nav class="app-header navbar navbar-expand bg-body d-flex justify-content-center">
         <!--begin::Container-->
         <div class="container-fluid">
             <!--begin::Start Navbar Links-->
@@ -77,16 +77,17 @@
                     </a>
                 </li>
             </ul>
-            <!--end::Start Navbar Links-->
-            <!--begin::End Navbar Links-->
-            <ul class="navbar-nav ms-auto">
-                <!--begin::Navbar Search-->
+            <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                        <i class="bi bi-search"></i>
-                    </a>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <input class="btn btn-outline-primary" type="submit" value="Выйти">
+                    </form>
                 </li>
             </ul>
+            <!--end::Start Navbar Links-->
+            <!--begin::End Navbar Links-->
+
             <!--end::End Navbar Links-->
         </div>
         <!--end::Container-->

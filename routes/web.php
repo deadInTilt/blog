@@ -16,6 +16,10 @@ use App\Http\Controllers\HomeController;
 |
 */
 
+Route::get('/test-auth', function () {
+    dd(Auth::check(), Auth::user());
+});
+
 Route::group(['namespace' => '\App\Http\Controllers\Main'], function() {
     Route::get('/', 'IndexController');
 });
@@ -24,7 +28,8 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index']);
 
-Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function () {
+Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => ['auth:web', 'admin']], function () {
+
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', 'AdminController')->name('admin.index');
     });
