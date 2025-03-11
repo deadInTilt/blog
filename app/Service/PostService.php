@@ -9,10 +9,6 @@ use Illuminate\Support\Facades\Storage;
 
 class PostService
 {
-    public function __construct(private StoreRequest $request)
-    {
-
-    }
     public function store($data)
     {
         try {
