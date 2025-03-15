@@ -4,8 +4,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin;
-use App\Http\Controllers\Admin\Post\IndexController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +21,7 @@ Route::get('/test-auth', function () {
 });
 
 Route::group(['namespace' => '\App\Http\Controllers\Main'], function() {
-    Route::get('/', 'IndexController');
+    Route::get('/', 'IndexController')->name('main.index');
 });
 
 Auth::routes(['verify' => true]);
@@ -35,7 +33,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', 'AdminController')->name('admin.index');
     });
-
 
     Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function () {
         Route::get('/', 'IndexController')->name('category.index');
@@ -90,6 +87,9 @@ Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'perso
     });
 
     Route::group(['namespace' => 'Comment', 'prefix' => 'comments'], function () {
-        Route::get('/', 'IndexController')->name('personal.comments.index');
+        Route::get('/', 'IndexController')->name('personal.comment.index');
+        Route::get('/{comment}/edit', 'EditController')->name('personal.comment.edit');
+        Route::patch('/{comment}', 'UpdateController')->name('personal.comment.update');
+        Route::delete('/{comment}', 'DeleteController')->name('personal.comment.delete');
     });
 });

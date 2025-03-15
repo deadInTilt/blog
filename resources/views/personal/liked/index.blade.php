@@ -52,6 +52,7 @@
                                             class="brand-image opacity-75 shadow"
                                             style="max-width: 20px;"/>
                                     </a>
+
                                 </td>
                                 <td>
                                     <form action=" {{route('personal.liked.delete', $post->id) }}" method="POST">

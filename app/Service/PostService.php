@@ -5,6 +5,7 @@ namespace App\Service;
 use App\Http\Requests\Admin\Post\StoreRequest;
 use App\Models\Post;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class PostService
@@ -22,8 +23,11 @@ class PostService
             $post = Post::firstOrCreate($data);
             $post->tags()->attach($tagsIds);
             DB::commit();
-        } catch (\Exception $excetpion) {
+        } catch (\Exception $exception) {
             DB::rollBack();
+            Log::error('Ошибка в методе store: ' . $exception->getMessage(), [
+                'exception' => $exception
+            ]);
             abort(500);
         }
     }
