@@ -54,7 +54,7 @@
                             <div class="row">
                                 <div class="form-group col-12" data-aos="fade-up">
                                     <label for="message" class="sr-only">Comment</label>
-                                    <textarea name="message" id="comment" class="form-control" placeholder="Comment" rows="10"></textarea>
+                                    <textarea name="message" id="comment" class="form-control" placeholder="Ваш комментарий..." rows="10"></textarea>
                                 </div>
                             </div>
                             <input type="hidden" name="post_id" value="{{ $post->id }}">

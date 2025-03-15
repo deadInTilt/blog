@@ -2,7 +2,7 @@
 @section('main')
 <main class="blog">
         <div class="container">
-            <h1 class="edica-page-title" data-aos="fade-up">Time to Blog</h1>
+            <h1 class="edica-page-title" data-aos="fade-up">Время постов!</h1>
             <section class="featured-posts-section">
                 <div class="row">
                     @foreach($posts as $post)
@@ -18,7 +18,7 @@
                     @endforeach
                 </div>
                 <div class="row">
-                    <div class="mx-auto" style="margin-top: -60px; margin-bottom: 150px; ">
+                    <div class="mx-auto" style="margin-top: -60px; margin-bottom: 100px; ">
                         {{ $posts->links() }}
                     </div>
                 </div>
@@ -26,8 +26,8 @@
             <div class="row">
                 <div class="col-md-8">
                     <section>
-                        <div class="mx-auto" style="margin-top: -60px; ">
-                            <h5 data-aos="fade-up">Random Posts</h5>
+                        <div class="mx-auto">
+                            <h5 data-aos="fade-up">Случайные посты</h5>
                         </div>
                         <div class="row blog-post-row">
                             @foreach($randomPosts as $post)
@@ -46,7 +46,7 @@
                 </div>
                 <div class="col-md-4 sidebar" data-aos="fade-left">
                     <div class="widget widget-post-list">
-                        <h5 class="widget-title">Popular Posts List</h5>
+                        <h5 class="widget-title">Популярные посты</h5>
                         <ul class="post-list">
                             @foreach($likedPosts as $post)
                             <li class="post">
@@ -61,8 +61,8 @@
                             @endforeach
                         </ul>
                     </div>
-                    <div class="widget">
-                        <h5 class="widget-title">Categories</h5>
+                    <div class="widget" style="margin-top: 130px; margin-bottom: 100px; " data-aos="fade-left">
+                        <h5 class="widget-title">Категории</h5>
                         <img src="{{ asset('assets/images/blog_widget_categories.jpg') }}" alt="categories" class="w-100">
                     </div>
                 </div>
