@@ -1,5 +1,5 @@
 
-@extends('admin.layouts.main')
+@extends('personal.layouts.main')
 @section('content')
 <main class="app-main">
     <!--begin::App Content Header-->
@@ -11,7 +11,7 @@
                 <div class="col-sm-6"><h3 class="mb-0">Main</h3></div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-end">
-                        <li class="breadcrumb-item"><a href="">Admin</a></li>
+                        <li class="breadcrumb-item"><a href="">Personal</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Main</li>
                     </ol>
                 </div>
@@ -32,8 +32,8 @@
                     <!--begin::Small Box Widget 1-->
                     <div class="small-box text-bg-primary">
                         <div class="inner">
-                            <h3>{{ $data['postsCount'] }}</h3>
-                            <p>Posts</p>
+                            <h3>1000</h3>
+                            <p>Liked Posts</p>
                         </div>
 
                             <path
@@ -55,8 +55,8 @@
                     <!--begin::Small Box Widget 2-->
                     <div class="small-box text-bg-success">
                         <div class="inner">
-                            <h3>{{ $data['categoriesCount'] }}<sup class="fs-5"></sup></h3>
-                            <p>Categories</p>
+                            <h3>10<sup class="fs-5"></sup></h3>
+                            <p>Comments</p>
                         </div>
                             <path
                                 d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z"
@@ -70,40 +70,6 @@
                         </a>
                     </div>
                     <!--end::Small Box Widget 2-->
-                </div>
-                <!--end::Col-->
-                <div class="col-lg-3 col-6">
-                    <!--begin::Small Box Widget 3-->
-                    <div class="small-box text-bg-warning">
-                        <div class="inner">
-                            <h3>{{ $data['tagsCount'] }}</h3>
-                            <p>Tags</p>
-                        </div>
-                        <a
-                            href="tags"
-                            class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover"
-                        >
-                            More info <i class="bi bi-link-45deg"></i>
-                        </a>
-                    </div>
-                    <!--end::Small Box Widget 3-->
-                </div>
-                <!--end::Col-->
-                <div class="col-lg-3 col-6">
-                    <!--begin::Small Box Widget 4-->
-                    <div class="small-box text-bg-danger">
-                        <div class="inner">
-                            <h3>{{ $data['usersCount'] }}</h3>
-                            <p>Users</p>
-                        </div>
-                        <a
-                            href="users"
-                            class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover"
-                        >
-                            More info <i class="bi bi-link-45deg"></i>
-                        </a>
-                    </div>
-                    <!--end::Small Box Widget 4-->
                 </div>
                 <!--end::Col-->
             </div>

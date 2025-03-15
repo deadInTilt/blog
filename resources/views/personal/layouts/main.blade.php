@@ -94,7 +94,7 @@
     </nav>
     <!--end::Header-->
 
-    @include('admin.includes.sidebar')
+    @include('personal.includes.sidebar')
 
     <!--begin::App Main-->
 

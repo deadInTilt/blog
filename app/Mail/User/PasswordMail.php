@@ -20,7 +20,6 @@ class PasswordMail extends Mailable implements ShouldQueue
      */
     public function __construct($password)
     {
-        //
         $this->password = $password;
     }
 

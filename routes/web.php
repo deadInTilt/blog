@@ -77,3 +77,19 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
         Route::delete('/{user}', 'DeleteController')->name('user.delete');
     });
 });
+
+Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'personal', 'middleware' => ['auth', 'verified']], function () {
+
+    Route::group(['namespace' => 'Main', 'prefix' => 'main'], function () {
+        Route::get('/', 'IndexController')->name('personal.main.index');
+    });
+
+    Route::group(['namespace' => 'Liked', 'prefix' => 'liked'], function () {
+        Route::get('/', 'IndexController')->name('personal.liked.index');
+        Route::delete('/{post}', 'DeleteController')->name('personal.liked.delete');
+    });
+
+    Route::group(['namespace' => 'Comment', 'prefix' => 'comments'], function () {
+        Route::get('/', 'IndexController')->name('personal.comments.index');
+    });
+});

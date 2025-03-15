@@ -4,7 +4,7 @@
         <!--begin::Sidebar Brand-->
         <div class="sidebar-brand">
             <!--begin::Brand Link-->
-            <a href="." class="brand-link">
+            <a href="" class="brand-link">
                 <!--begin::Brand Image-->
                 <img
                     src="{{ asset('dist/assets/img/logoB.jpg') }}"
