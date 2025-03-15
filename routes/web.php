@@ -24,6 +24,16 @@ Route::group(['namespace' => '\App\Http\Controllers\Main'], function() {
     Route::get('/', 'IndexController')->name('main.index');
 });
 
+Route::group(['namespace' => '\App\Http\Controllers\Post', 'prefix' => 'posts'], function() {
+    Route::get('/', 'IndexController')->name('main.post.home');
+    Route::get('/{post}', 'ShowController')->name('main.post.show');
+
+        // post/10/comments
+    Route::group(['namespace' => 'Comment', 'prefix'=>'{post}/comments'], function() {
+        Route::post('/', 'StoreController')->name('comment.store');
+        });
+});
+
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [HomeController::class, 'index']);
@@ -41,7 +51,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
         Route::get('/{category}', 'ShowController')->name('category.show');
         Route::get('/{category}/edit', 'EditController')->name('category.edit');
         Route::patch('/{category}', 'UpdateController')->name('category.update');
-        Route::delete('/{category}', 'DeleteController')->name('category.delete');
+        Route::delete('/{category}', 'StoreController')->name('category.delete');
     });
 
     Route::group(['namespace' => 'Tag', 'prefix' => 'tags'], function () {
@@ -51,7 +61,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
         Route::get('/{tag}', 'ShowController')->name('tag.show');
         Route::get('/{tag}/edit', 'EditController')->name('tag.edit');
         Route::patch('/{tag}', 'UpdateController')->name('tag.update');
-        Route::delete('/{tag}', 'DeleteController')->name('tag.delete');
+        Route::delete('/{tag}', 'StoreController')->name('tag.delete');
     });
 
     Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
@@ -61,7 +71,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
         Route::get('/{post}', 'ShowController')->name('post.show');
         Route::get('/{post}/edit', 'EditController')->name('post.edit');
         Route::patch('/{post}', 'UpdateController')->name('post.update');
-        Route::delete('/{post}', 'DeleteController')->name('post.delete');
+        Route::delete('/{post}', 'StoreController')->name('post.delete');
     });
 
     Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
@@ -71,7 +81,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
         Route::get('/{user}', 'ShowController')->name('user.show');
         Route::get('/{user}/edit', 'EditController')->name('user.edit');
         Route::patch('/{user}', 'UpdateController')->name('user.update');
-        Route::delete('/{user}', 'DeleteController')->name('user.delete');
+        Route::delete('/{user}', 'StoreController')->name('user.delete');
     });
 });
 
