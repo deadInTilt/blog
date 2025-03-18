@@ -14,4 +14,7 @@ class Category extends Model
     protected $table = 'categories';
     protected $guarded = false;
 
+    public function getPosts() {
+        return $this->belongsTo(Post::class, 'id', 'category_id');
+    }
 }

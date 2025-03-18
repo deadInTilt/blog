@@ -83,10 +83,6 @@
                             @endforeach
                         </ul>
                     </div>
-                    <div class="widget" style="margin-top: 130px; margin-bottom: 100px; " data-aos="fade-left">
-                        <h5 class="widget-title">Категории</h5>
-                        <img src="{{ asset('assets/images/blog_widget_categories.jpg') }}" alt="categories" class="w-100">
-                    </div>
                 </div>
             </div>
         </div>
