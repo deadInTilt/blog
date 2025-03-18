@@ -1,17 +1,18 @@
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 @extends('layouts.main')
 @section('main')
     <main class="blog-post">
         <div class="container">
             <h1 class="edica-page-title" data-aos="fade-up">{{ $post->title }}</h1>
             <p class="edica-blog-post-meta" data-aos="fade-up" data-aos-delay="200">• {{ $date->translatedFormat('F') }} {{ $date->day }}, {{ $date->year }} • {{ $date->format('H:i') }} •
-                {{ $post->comments->count() }} Комментариев</p>
+                {{ $post->comments->count() }} Комментариев •</p>
             <section class="blog-post-featured-img" data-aos="fade-up" data-aos-delay="300">
                 <img src="{{ asset('storage/' . $post->main_image) }}" alt="featured image" class="w-100">
             </section>
             <section class="post-content">
                 <div class="row">
                     <div class="col-lg-9 mx-auto" data-aos="fade-up">
-                        <p>{{ $post->content }}</p>
+                        <p>{!! $post->content !!}</p>
                     </div>
                 </div>
             </section>
@@ -30,6 +31,31 @@
                             </div>
                             @endforeach
                         </div>
+                    </section>
+                    <section class="mb-5">
+                        @auth()
+                        <form action="{{ route('like.store', $post->id) }}" method="post">
+                            @csrf
+                            <h2 class="section-title mb-4" data-aos="fade-up">Нравится
+                                <button type="submit" class="border-0 bg-transparent" data-aos="fade-up">
+                                        ({{ $post->likedUsers->count() }})
+                                        @if(auth()->user()->likedPosts->contains($post->id))
+                                            <i class="fa-solid fa-heart" style="color: #f50000;"></i>
+                                        @else
+                                            <i class="fa-regular fa-heart"></i>
+                                        @endif
+                                </button>
+                            </h2>
+                        </form>
+                        @endauth
+                        @guest()
+                                <div>
+                                    <h2 class="section-title mb-4" data-aos="fade-up">Нравится
+                                    <span>{{ $post->likedUsers->count() }}</span>
+                                    <i class="fa-regular fa-heart"></i>
+                                    </h2>
+                                </div>
+                        @endguest
                     </section>
                     <section class="comment-list mb-5">
                         <h2 class="section-title mb-4" data-aos="fade-up">Комментарии ({{ $post->comments->count() }})</h2>
